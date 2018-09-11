@@ -1,0 +1,337 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans');
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script');
+
+@font-face {
+    font-family: avenirNextFont;
+    src: url("AvenirNextLTPro-It.otf");
+}
+
+$font-family-main-title: 'Kaushan Script', cursive;
+
+$facebook-color: #3B5998;
+$sand-color: #FFE978;
+
+$carousel-transition: .5s;
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Work Sans', sans-serif;
+    width: 90%;
+    margin: 0 auto;
+    background-image: url("https://static9.depositphotos.com/1098496/1178/i/950/depositphotos_11786094-stock-photo-sandbackground.jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    z-index: 1;
+}
+
+header {
+    .hero {
+        position: relative;    
+        height: 75vh;
+        margin: 0 auto;
+        width: 100%;
+        min-height: 400px;
+        background: transparent;       
+        .myNavClass {
+            font-size: 30px; 
+            .textForNavbar {
+                color: black;
+                margin: 0 10px;
+                border: transparent solid;
+                &:hover {
+                    border-bottom: $sand-color solid;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        p {
+            font-family: $font-family-main-title;
+            text-align: center;
+            line-height: 300px;
+            font-size: 50px;
+            min-height: 60px;
+            background: transparent;
+        }
+    }   
+}    
+
+.aboutBiałogóra {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 400px;
+    height: 60vh;
+    background-color: $sand-color;   
+    h2 {
+        font-size: 36px;
+        font-family: avenirNextFont;
+        font-weight: bold;
+        letter-spacing: .05em;
+    }
+    p {
+        font-size: 19px;
+        font-family: avenirNextFont;
+        padding: 0 30px;
+        line-height: 1.5em;
+    } 
+    .cityGallery {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        .imageView {
+            width: 100%;
+            height: 25vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            &:hover .imageChild {
+                will-change: transform opacity cursor;    
+            }
+            &:hover .imageChild::before {
+                display: flex;
+            };
+            .imageChild {
+                height: 100%;
+                width: 100%;
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+                transition: all .5s;
+                &::before {
+                    content: "";
+                    display: none;
+                    height: 100%;
+                    width: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+                &:hover {
+                    opacity: .6;
+                    transform: scale(1.2);
+                    cursor: pointer;
+                }
+            }
+            #img1 {
+                background-image: url("../images/Białogóra_view1.jpg");
+            }
+            #img2 {
+                background-image: url("../images/Białogóra_view2.jpg");
+            }
+            #img3 {
+                background-image: url("../images/Białogóra_view3.jpg");
+            }
+            #img4 {
+                background-image: url("../images/Białogóra_view4.jpg");
+            }
+        }
+    }
+    .modalBoxes {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding-top: 80px;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        overflow: hidden;
+        background-color:rgba(150, 150, 150, 0.5);
+        #closeIcon {
+            position: absolute;
+            top: 20px;
+            right: 150px;
+            color: #FFF;
+            font-size: 45px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 3;
+            border-radius: 50%;
+            transition: 0.6s ease;
+            &:hover,
+            :active {
+                color: rgba(0, 0, 0, 0.8);
+            }
+        }
+        #boxContent {
+            position: relative;
+            top: -50px;
+            width: 80%;
+            max-width: 1100px;
+            margin: 0 auto;
+            .boxImg {
+                display: none;
+                img {
+                    width: 100%;
+                    max-width: 1100px;
+                    max-height: 90vh;
+                    object-fit: cover;
+                }
+            }
+            .arrow {
+                cursor: pointer;
+                position: absolute;
+                top: 50%;
+                padding: 20px;
+                margin-top: -50px;
+                color: rgb(235, 227, 223);
+                font-weight: bold;
+                font-size: 20px;
+                border-radius: 50%;
+                transition: 0.6s ease;
+                &:hover,
+                 :active {
+                    color: rgba(235, 227, 223, 0.8);
+                    background-color: #000;
+                }
+                .awesomeArrow {
+                    background: transparent;
+                }
+                
+            }
+            #arrowBack {
+                left: 30px;
+            }
+            #arrowNext {
+                right: 30px;
+            }
+        }
+    }
+}
+
+.homeGallery {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: #FFF;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    .galleryTitle {
+        flex: 1 100%;
+        text-align: center;
+        p {
+            font-size: 40px;
+        }
+    }
+    .myOwnCarouselClass {
+        display: flex;
+        width: 80%;
+        height: 60vh;
+        margin-bottom: 30px;
+        .slideBox {
+            justify-content: flex-start;
+            flex-direction: row;
+            .slideInfo {
+                color: #000;
+                display: flex;
+                flex-direction: column;
+                width: 40%;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            img {
+                width: 60%;
+                max-width: 600px;
+                max-height: 400px;
+                position: absolute;
+                top: 0;
+                left: 400px;
+            }
+        }
+        .carouselArrow1,
+        .carouselArrow2 {
+            background-color: $sand-color;
+            border-radius: 50%;
+            border: 7px $sand-color solid;
+        }
+    }
+}
+
+.contact {
+    background-color: #FFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    > p {
+        font-size: 40px;
+    }
+    .contactMethods {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        min-width: 500px;
+        .phoneImage {
+            color: lightgreen;
+            &:hover {
+                animation: iconHover 2s;
+            }    
+        }        
+        .mailImage {
+            color: red;
+            &:hover {
+                animation: iconHover 2s;
+            }
+        }
+        .facebookImage {
+            color: $facebook-color;
+            &:hover {
+                animation: iconHover 2s;
+            }
+        }
+        p {
+            line-height: 60px;
+        }
+    }
+    .mapContainer {
+        justify-content: center;
+        margin: 20px auto;
+        iframe {
+            width: 640px;
+            height: 480px;
+        }
+    }
+    .backToTop {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 99;
+        .btnToTop {
+            display: none;
+            outline: none;
+            min-width: 80px;
+            min-height: 80px;
+            background-color: #3B5998;
+            border-radius: 50%;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            cursor: pointer;
+            &:hover {
+                background-color: rgb(149, 180, 238);
+            }
+        }
+    }
+    .copyrights {
+        width: 100%;
+        background-color: #000;
+        color: #FFF;
+        padding-top: 20px;
+        padding-left: 20px;
+        font-size: 13px;
+    }
+}
+
+@keyframes iconHover {
+    0% {transform: scale(1.0)}
+    50% {transform: scale(1.2)}
+    100% {transform: scale(1.0)}
+}
