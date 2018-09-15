@@ -31,31 +31,64 @@ body {
 header {
     .hero {
         position: relative;    
-        height: 75vh;
-        margin: 0 auto;
         width: 100%;
         min-height: 400px;
         background: transparent;       
         .myNavClass {
-            font-size: 30px; 
-            .textForNavbar {
-                color: black;
-                margin: 0 10px;
-                border: transparent solid;
-                &:hover {
-                    border-bottom: $sand-color solid;
+            font-size: 26px;
+            .flexHamburgerMenu {
+                display: flex;
+                justify-content: center;
+                flex-direction: row;
+                #hamburgerBtn {
+                    border: 0;
+                    width: 50px;
+                    height: 50px;
+                    position: relative;
+                    transform: rotate(0deg);
+                    transition: .5s ease-in-out;
                     cursor: pointer;
+                    span{
+                        display: block;
+                        position: absolute;
+                        height: 9px;
+                        width: 100%;
+                        background: #1e7096;
+                        border-radius: 9px;
+                        opacity: 1;
+                        left: 0;
+                        transform: rotate(0deg);
+                        transition: .25s ease-in-out;
+                        &:nth-child(1) {
+                            top: 0px;
+                        }
+                        &:nth-child(2) {
+                            top: 18px;
+                        }
+                        &:nth-child(3) {
+                            top: 36px;
+                        }                    
+                    }
+                    &.open span:nth-child(1) {
+                        top: 18px;
+                        transform: rotate(135deg);
+                    }                  
+                    &.open span:nth-child(2) {
+                        opacity: 0;
+                        left: -60px;
+                    }                  
+                    &.open span:nth-child(3) {
+                        top: 18px;
+                        transform: rotate(-135deg);
+                    }
                 }
-            }
+            }    
         }
-
         p {
             font-family: $font-family-main-title;
-            text-align: center;
-            line-height: 300px;
-            font-size: 50px;
-            min-height: 60px;
+            text-align: center;    
             background: transparent;
+            color: $sand-color;
         }
     }   
 }    
@@ -67,7 +100,7 @@ header {
     align-items: center;
     flex-wrap: wrap;
     min-height: 400px;
-    height: 60vh;
+    height: auto;
     background-color: $sand-color;   
     h2 {
         font-size: 36px;
@@ -76,6 +109,7 @@ header {
         letter-spacing: .05em;
     }
     p {
+        text-align: justify;
         font-size: 19px;
         font-family: avenirNextFont;
         padding: 0 30px;
@@ -172,7 +206,7 @@ header {
                 img {
                     width: 100%;
                     max-width: 1100px;
-                    max-height: 90vh;
+                    height: 70vh;
                     object-fit: cover;
                 }
             }
@@ -194,8 +228,7 @@ header {
                 }
                 .awesomeArrow {
                     background: transparent;
-                }
-                
+                } 
             }
             #arrowBack {
                 left: 30px;
@@ -213,7 +246,8 @@ header {
     flex-wrap: wrap;
     background-color: #FFF;
     padding-top: 50px;
-    padding-bottom: 50px;
+    padding-bottom: 30px;
+    height: auto;
     .galleryTitle {
         flex: 1 100%;
         text-align: center;
@@ -225,26 +259,26 @@ header {
         display: flex;
         width: 80%;
         height: 60vh;
-        margin-bottom: 30px;
         .slideBox {
+            width: 100%;
             justify-content: flex-start;
             flex-direction: row;
             .slideInfo {
                 color: #000;
                 display: flex;
                 flex-direction: column;
-                width: 40%;
+                width: 38%;
                 position: absolute;
                 top: 0;
                 left: 0;
+                margin-top: 10%;
             }
             img {
                 width: 60%;
-                max-width: 600px;
-                max-height: 400px;
+                max-height: 550px;
                 position: absolute;
                 top: 0;
-                left: 400px;
+                left: 40%;
             }
         }
         .carouselArrow1,
@@ -256,7 +290,27 @@ header {
     }
 }
 
+.priceTable {
+    background: transparent;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .priceHeader {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        font-weight: bold;
+    }
+    table {
+        border-collapse: separate !important;
+        background-color: rgba(250, 250, 250, .6);
+        border-radius: 10px;        
+    }    
+}
+
 .contact {
+    padding-top: 30px;
     background-color: #FFF;
     display: flex;
     flex-direction: column;
@@ -268,12 +322,11 @@ header {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-        min-width: 500px;
         .phoneImage {
             color: lightgreen;
             &:hover {
                 animation: iconHover 2s;
-            }    
+            }  
         }        
         .mailImage {
             color: red;
@@ -291,14 +344,7 @@ header {
             line-height: 60px;
         }
     }
-    .mapContainer {
-        justify-content: center;
-        margin: 20px auto;
-        iframe {
-            width: 640px;
-            height: 480px;
-        }
-    }
+    
     .backToTop {
         display: flex;
         justify-content: center;
@@ -330,8 +376,437 @@ header {
     }
 }
 
+.showNavbarClass {
+    display: block;
+}
+
 @keyframes iconHover {
     0% {transform: scale(1.0)}
     50% {transform: scale(1.2)}
     100% {transform: scale(1.0)}
+}
+
+@media only screen and (min-width: 1200px) {
+    .hero {
+        height: 75vh;
+        .myBrandLogo {
+            font-size: 40px;
+        }
+        .respContent {
+            justify-content: flex-end;
+            .textForNavbar,
+            a {
+                border: transparent solid;
+                display: inline-block;
+                text-align:center;
+            }
+            .textForNavbar:hover {
+                border-bottom: $sand-color solid;
+                cursor: pointer;
+            }
+            a:hover {
+                font-weight:bold;    
+            }
+            a::after {
+                display: block;
+                content: attr(title);
+                font-weight: bold;
+                height: 0;
+                overflow: hidden;
+                visibility: hidden;
+            }
+        }
+        p {
+            line-height: 400px;
+            font-size: 60px;
+        }
+    }   
+    .aboutBiałogóra {
+        h2 {
+            margin: 30px auto;
+        }
+    }
+    .priceTable {
+        min-height: 600px;
+        padding-top: 40px;
+        padding-bottom: 30px;
+        .priceHeader {
+            padding-bottom: 20px;
+            h2 {
+                font-size: 40px;
+            }
+        }
+        th,
+        td {
+            font-size: 20px;
+            padding: 30px;
+        }
+        th:nth-of-type(1) {
+            padding-left: 20%;
+            font-size: 30px;
+        }
+        td:nth-of-type(2),
+        td:nth-of-type(3),
+        td:nth-of-type(5),
+        td:nth-of-type(6) {
+            padding-left: 10%;
+        }
+    }
+    .mailImage,
+    .facebookImage,
+    .phoneImage {
+        margin: 40px;
+    }
+    .contactMethods {
+        p {
+            padding-top: 40px;
+        }
+    }
+    .mapContainer {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        iframe {
+            min-width: 640px;
+            min-height: 480px;
+            width: 50%;
+            height: auto;
+        } 
+    }
+}
+
+@media only screen and (max-width: 1199px) {
+    .hero {
+        height: 75vh;
+        width: 100%;
+        .myBrandLogo {
+            font-size: 25px;
+        }
+        .respContent {
+            justify-content: flex-end;
+            .textForNavbar {
+                border: transparent solid;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+        p {
+            line-height: 400px;
+            font-size: 60px;
+        }
+    }   
+    .aboutBiałogóra {
+        h2 {
+            margin: 30px auto;
+        }
+    }
+    .homeGallery {
+        justify-content: center;
+        .galleryTitle p {
+            font-weight: bold;
+            margin: 20px auto;
+            font-family: avenirNextFont;
+            font-size: 50px;
+        }
+        .myOwnCarouselClass {
+            width: 100%;
+        }
+    }
+    .priceTable {
+        padding-top: 60px;
+        padding-bottom: 90px;
+        .priceHeader {
+            padding-bottom: 20px;
+            h2 {
+                font-size: 40px;
+            }
+        }
+        th,
+        td {
+            font-size: 18px;
+            padding: 20px;
+        }
+        th:nth-of-type(1) {
+            padding-left: 20%;
+            font-size: 30px;
+        }
+        td:nth-of-type(2),
+        td:nth-of-type(3),
+        td:nth-of-type(5),
+        td:nth-of-type(6) {
+            padding-left: 10%;
+        }
+    }
+    .mailImage,
+    .facebookImage,
+    .phoneImage {
+        margin: 20px;
+    }
+    .contactMethods {
+        p {
+            padding-top: 20px;
+        }
+    }
+    .mapContainer {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        iframe {
+            min-width: 640px;
+            min-height: 480px;
+            width: 50%;
+            height: auto;
+        } 
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .hero {
+        height: 75vh;
+        width: 100%;
+        .myBrandLogo {
+            font-size: 20px;
+        }
+        .respContent {
+            justify-content: flex-end;
+            .textForNavbar {
+                border: transparent solid;
+                &:hover {
+                    border-bottom: none;
+                    cursor: default;
+                    font-weight: normal;
+                    margin-left: 0;
+                }
+            }
+        }
+        p {
+            line-height: 400px;
+            font-size: 60px;
+        }
+    }   
+    .aboutBiałogóra {
+        h2 {
+            margin: 30px auto;
+        }
+        .cityGallery {
+            flex-wrap: wrap;
+            .imageView {
+                width: 50%;
+            }
+        }
+        .modalBoxes {
+            #closeIcon {
+                right: 120px;
+                top: 30px;
+            }
+        }
+    }
+    .homeGallery {
+        padding-bottom: 0;
+        justify-content: center;
+        .galleryTitle p {
+            font-weight: bold;
+            margin: 20px auto;
+            font-family: avenirNextFont;
+            font-size: 50px;
+        }
+        .myOwnCarouselClass {
+            width: 100%;
+            height: 45vh;
+        }
+    }
+    .priceTable {
+        padding-top: 40px;
+        padding-bottom: 70px;
+        th,
+        td {
+            font-size: 15px;
+            padding: 15px;
+        }
+    }
+    .mailImage,
+    .facebookImage,
+    .phoneImage {
+        margin: 20px;
+    }
+    .contactMethods {
+        p {
+            padding-top: 20px;
+        }
+    }
+    .mapContainer {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        iframe {
+            min-width: 640px;
+            min-height: 480px;
+            width: 50%;
+            height: auto;
+        } 
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    header {
+        position: relative;
+        .hero {
+            height: 75vh;
+            width: 100%;
+            .myNavClass {
+                font-size: 20px;
+                background-color: rgba(250, 250, 250, .6);
+                .flexLogo {
+                    display: flex;
+                    justify-content: center;
+                    .myBrandLogo {
+                        font-size: 20px;
+                    }
+                }
+                .hamburgerMenuClass {
+                    font-size: 20px;
+                }
+                .respContent {
+                    align-items: center;
+                    .textForNavbar {
+                        border: transparent solid;
+                        &:hover {
+                            border-bottom: none;
+                            cursor: default;
+                            font-weight: normal;
+                            margin-left: 0;
+                        }
+                    }
+                }
+            }
+            
+            p {
+                line-height: normal;
+                position: absolute;
+                top: 70%;
+                left: 10%;
+                font-size: 40px;
+            }
+        }   
+    }
+    
+    .aboutBiałogóra {
+        h2 {
+            font-size: 22px;
+            margin: 30px auto;
+        }
+        p {
+            font-size: 13px;
+        }
+        .cityGallery {
+            flex-wrap: wrap;
+            .imageView {
+                width: 100%;
+            }
+        }
+        .modalBoxes {
+            padding-top: 0;
+            #closeIcon {
+                right: 30px;
+                top: 30px;
+            }
+            #boxContent {
+                margin-top: 50%;
+                width: 85%;
+                img {
+                    height: 80vh;
+                }
+            }
+        }
+    }
+    .homeGallery {
+        height: 70vh;
+        padding-bottom: 0;
+        justify-content: center;
+        .galleryTitle p {
+            font-weight: bold;
+            margin: 20px auto;
+            font-family: avenirNextFont;
+            font-size: 50px;
+        }
+        .myOwnCarouselClass {
+            height: 40vh;
+            min-height: 350px;
+            min-width: 1px;
+            .slideBox {
+                max-height: 800px;
+                .slideInfo {
+                    background-color: rgba(250, 250, 250, .6);
+                    height: 17vh; 
+                    width: 90%;
+                    position: absolute;
+                    top: 150px;
+                    margin-left: 5%;
+                    h2 {
+                        font-size: 20px;
+                    }
+                    p {
+                        text-align: justify;
+                        font-size: 11px;
+                        margin: 0 15px;
+                    }
+                }
+                .homeImageClass {
+                    width: 100%;
+                    height: auto;
+                    max-height: 500px;
+                    img {
+                        width: 100%;
+                        height: auto;
+                        max-height: 500px;
+                        position: static;
+                        margin: 0 auto;
+                    }
+                } 
+            }
+            .carouselArrow1,
+            .carouselArrow2 {
+                position: absolute;
+                top: 45%;
+            }
+        }
+    }
+    .priceTable {
+        padding-top: 60px;
+        padding-bottom: 30px;
+        th,
+        td {
+            font-size: 11px;
+            padding: 10px;
+        }
+    }
+    .contact {
+        padding-top: 50px;
+        .mailImage,
+        .facebookImage,
+        .phoneImage {
+            font-size: 40px;
+            margin: 10px;
+        }
+        .contactMethods {
+            p {
+                padding-top: 4px;
+                font-size: 13px;
+            }
+        }
+        .mapContainer {
+            position: relative;
+            padding-bottom: 80%;
+            height: 0;
+            overflow: hidden;
+            iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100% !important;
+                height: 100% !important;
+            } 
+        }
+    }    
 }

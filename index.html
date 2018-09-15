@@ -12,23 +12,31 @@
     <body>
         <header>
             <div class="hero" data-parallax="scroll" data-image-src="images/leba_beach_image_to_parallax.jpg">
-                <nav class="navbar navbar-expand-lg navbar-light myNavClass" role="navigation">
-                    <div class="container-fluid" id="scrollToTopPoint">
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <div class="navbar-header mr-auto">
-                                <a class="navbar-brand nav-item" href="#">
-                                    <i class="fas fa-bed fa-3x"></i>
-                                </a>
+                <nav class="navbar navbar-expand-md navbar-light myNavClass" role="navigation">
+                    <div class="container-fluid d-flex justify-content-flex-start" id="scrollToTopPoint">
+                        <div class="navbar-header col-md-1 col-sm-12 flexLogo">
+                            <a class="navbar-brand nav-item myBrandLogo" href="#"><i class="fas fa-bed fa-2x"></i></a>
+                        </div>
+                        <div class="navbar-nav d-md-none col-sm-12 flexHamburgerMenu">
+                            <div id="hamburgerBtn" class="navbar-toggler toggler-example hamburgerMenuClass" type="button" data-toggle="collapse" data-target="#navbarMainContent">
+                                <span></span>
+                                <span></span>
+                                <span></span>
                             </div>
-                            <ul class="navbar-nav ml-auto">
+                        </div>
+                        <div class="collapse navbar-collapse d-none d-md-block col-md-11 col-sm-12 rightContent" id="navbarMainContent">
+                            <ul class="navbar-nav ml-auto respContent col-sm-12">
                                 <li class="nav-item textForNavbar">
-                                    <a id="navbarFirstLink" class="nav-link">O Białogórze</a>
+                                    <a id="navbarFirstLink" title="O Białogórze" class="nav-link">O Białogórze</a>
                                 </li>
                                 <li class="nav-item textForNavbar">
-                                    <a id="navbarSecondLink" class="nav-link">Galeria</a>
+                                    <a id="navbarSecondLink" title="Galeria" class="nav-link">Galeria</a>
                                 </li>
                                 <li class="nav-item textForNavbar">
-                                    <a id="navbarThirdLink" class="nav-link">Kontakt</a>
+                                    <a id="navbarThirdLink" title="Cennik" class="nav-link">Cennik</a>
+                                </li>
+                                <li class="nav-item textForNavbar">
+                                    <a id="navbarFourthLink" title="Kontakt" class="nav-link">Kontakt</a>
                                 </li>
                             </ul>
                         </div>
@@ -86,21 +94,27 @@
                             <h2>Nasz piękny dom</h2>
                             <p>Apartament jest położony ok. 2 km od plaży. Mamy do dyspozycji 3 pokoje: 2 pokoje dwuosobowe oraz 1 pokój trzyosobowy</p>
                         </div>
-                        <img src="https://cdn.pixabay.com/photo/2017/02/05/00/19/web-design-2038872_960_720.jpg" alt="First slide">
+                        <div class="homeImageClass">
+                            <img src="https://cdn.pixabay.com/photo/2017/02/05/00/19/web-design-2038872_960_720.jpg" alt="First slide">
+                        </div>
                     </div>
                     <div class="carousel-item slideBox">
                         <div class="carousel-caption slideInfo">
                             <h2>Pokoje dwuosobowe</h2>
                             <p>Nasze pokoje dwuosobowe to przestrzeń i wygoda.</p>
                         </div>
-                        <img src="https://cdn.pixabay.com/photo/2015/01/14/18/41/home-office-599475_960_720.jpg" alt="Second slide">
+                        <div class="homeImageClass">
+                            <img src="https://cdn.pixabay.com/photo/2015/01/14/18/41/home-office-599475_960_720.jpg" alt="Second slide">
+                        </div>
                     </div>
                     <div class="carousel-item slideBox">
                         <div class="carousel-caption slideInfo">
                             <h2>Pokój trzyosobowy</h2>
                             <p>Opcja dla rodzin z dzieckiem. Możliwa dostawka w razie przybycia do Nas w liczniejszym gronie</p>
                         </div>
-                        <img src="https://cdn.pixabay.com/photo/2014/05/02/21/50/home-office-336378_960_720.jpg" alt="Third slide">
+                        <div class="homeImageClass">
+                            <img src="https://cdn.pixabay.com/photo/2014/05/02/21/50/home-office-336378_960_720.jpg" alt="Third slide">
+                        </div>
                     </div>
                 </div>
                 <a class="carousel-control-prev text-info" href="#homeGalleryCarousel" data-slide="prev">
@@ -111,6 +125,32 @@
                 </a>
             </div>            
         </section>
+        <section id="priceSection" class="priceTable" data-parallax="scroll" data-image-src="images/drink_on_beach_parallax.jpg">
+            <div class="priceHeader">
+                <h2>Cennik</h2>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>\</th>
+                        <th>pokój dwuosobowy</th>
+                        <th>pokój trzyosobowy</th>
+                    </tr>
+                </thead>  
+                <tbody>
+                    <tr>
+                        <td>w sezonie (między 15.06, a 31.08)</td>
+                        <td>100 zł</td>
+                        <td>150 zł</td>
+                    </tr>
+                    <tr>
+                        <td>poza sezonem (między 01.09, a 14.06)</td>
+                        <td>150 zł</td>
+                        <td>180 zł</td>
+                    </tr>
+                </tbody>                    
+            </table>
+        </section>
         <footer id="contactSection" class="contact">
             <p>Kontakt</p>
             <div class="contactMethods">
@@ -120,7 +160,7 @@
                 <p>+48 790 679 410</p>   
             </div>
             <div class="mapContainer">
-                <iframe src="https://www.google.com/maps/d/embed?mid=1RkQHqJlp1Ls4JPKTYIk-3UrHmE9wdfUo" width="640" height="480"></iframe>
+                <iframe src="https://www.google.com/maps/d/embed?mid=1RkQHqJlp1Ls4JPKTYIk-3UrHmE9wdfUo" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
             </div>
             <div class="backToTop">
                 <button class="btnToTop" id="toTopBtn"><i class="fas fa-angle-double-up fa-3x"></i></button>

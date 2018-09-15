@@ -20,9 +20,11 @@ function scrollToShow(btn) {
 var navbarFirstLink = document.getElementById("navbarFirstLink");
 var navbarSecondLink = document.getElementById("navbarSecondLink");
 var navbarThirdLink = document.getElementById("navbarThirdLink");
+var navbarFourthLink = document.getElementById("navbarFourthLink");
 
 var scrollToAbout = document.getElementById("aboutSection");
 var scrollToGallery = document.getElementById("gallerySection");
+var scrollToPrice = document.getElementById("priceSection");
 var scrollToContact = document.getElementById("contactSection");
 
 navbarFirstLink.addEventListener("click", function() {
@@ -34,6 +36,10 @@ navbarSecondLink.addEventListener("click", function() {
 })
 
 navbarThirdLink.addEventListener("click", function() {
+    smoothScroll(scrollToPrice);
+})
+
+navbarFourthLink.addEventListener("click", function() {
     smoothScroll(scrollToContact);
 })
 
@@ -128,4 +134,31 @@ window.addEventListener("click", function(e) {
     if (e.target == cityModal) {
         closeModal();
     }
+})
+
+//hamburger menu action
+function showHamburger (elem) {
+    elem.classList.remove("d-none");
+    elem.classList.remove("d-md-block");
+    elem.classList.add("showNavbarClass");
+}
+
+function hideHamburger (elem) {
+    elem.classList.add("d-none");
+    elem.classList.add("d-md-block");
+    elem.classList.remove("showNavbarClass");
+}
+
+var i = 1;
+
+var hamburgerBtn = document.getElementById("hamburgerBtn");
+hamburgerBtn.addEventListener("click", function() {
+    var navbarMainContent = document.getElementById("navbarMainContent");
+    if (i % 2 !== 0) {
+        showHamburger(navbarMainContent);
+    } else hideHamburger(navbarMainContent);
+    i++;  
+})
+hamburgerBtn.addEventListener("click", function() {
+    this.classList.toggle("open");
 })

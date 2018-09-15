@@ -20,27 +20,54 @@ body {
 
 header .hero {
   position: relative;
-  height: 75vh;
-  margin: 0 auto;
   width: 100%;
   min-height: 400px;
   background: transparent; }
   header .hero .myNavClass {
-    font-size: 30px; }
-    header .hero .myNavClass .textForNavbar {
-      color: black;
-      margin: 0 10px;
-      border: transparent solid; }
-      header .hero .myNavClass .textForNavbar:hover {
-        border-bottom: #FFE978 solid;
+    font-size: 26px; }
+    header .hero .myNavClass .flexHamburgerMenu {
+      display: flex;
+      justify-content: center;
+      flex-direction: row; }
+      header .hero .myNavClass .flexHamburgerMenu #hamburgerBtn {
+        border: 0;
+        width: 50px;
+        height: 50px;
+        position: relative;
+        transform: rotate(0deg);
+        transition: .5s ease-in-out;
         cursor: pointer; }
+        header .hero .myNavClass .flexHamburgerMenu #hamburgerBtn span {
+          display: block;
+          position: absolute;
+          height: 9px;
+          width: 100%;
+          background: #1e7096;
+          border-radius: 9px;
+          opacity: 1;
+          left: 0;
+          transform: rotate(0deg);
+          transition: .25s ease-in-out; }
+          header .hero .myNavClass .flexHamburgerMenu #hamburgerBtn span:nth-child(1) {
+            top: 0px; }
+          header .hero .myNavClass .flexHamburgerMenu #hamburgerBtn span:nth-child(2) {
+            top: 18px; }
+          header .hero .myNavClass .flexHamburgerMenu #hamburgerBtn span:nth-child(3) {
+            top: 36px; }
+        header .hero .myNavClass .flexHamburgerMenu #hamburgerBtn.open span:nth-child(1) {
+          top: 18px;
+          transform: rotate(135deg); }
+        header .hero .myNavClass .flexHamburgerMenu #hamburgerBtn.open span:nth-child(2) {
+          opacity: 0;
+          left: -60px; }
+        header .hero .myNavClass .flexHamburgerMenu #hamburgerBtn.open span:nth-child(3) {
+          top: 18px;
+          transform: rotate(-135deg); }
   header .hero p {
     font-family: "Kaushan Script", cursive;
     text-align: center;
-    line-height: 300px;
-    font-size: 50px;
-    min-height: 60px;
-    background: transparent; }
+    background: transparent;
+    color: #FFE978; }
 
 .aboutBiałogóra {
   display: flex;
@@ -49,7 +76,7 @@ header .hero {
   align-items: center;
   flex-wrap: wrap;
   min-height: 400px;
-  height: 60vh;
+  height: auto;
   background-color: #FFE978; }
   .aboutBiałogóra h2 {
     font-size: 36px;
@@ -57,6 +84,7 @@ header .hero {
     font-weight: bold;
     letter-spacing: .05em; }
   .aboutBiałogóra p {
+    text-align: justify;
     font-size: 19px;
     font-family: avenirNextFont;
     padding: 0 30px;
@@ -139,7 +167,7 @@ header .hero {
         .aboutBiałogóra .modalBoxes #boxContent .boxImg img {
           width: 100%;
           max-width: 1100px;
-          max-height: 90vh;
+          height: 70vh;
           object-fit: cover; }
       .aboutBiałogóra .modalBoxes #boxContent .arrow {
         cursor: pointer;
@@ -169,7 +197,8 @@ header .hero {
   flex-wrap: wrap;
   background-color: #FFF;
   padding-top: 50px;
-  padding-bottom: 50px; }
+  padding-bottom: 30px;
+  height: auto; }
   .homeGallery .galleryTitle {
     flex: 1 100%;
     text-align: center; }
@@ -178,33 +207,50 @@ header .hero {
   .homeGallery .myOwnCarouselClass {
     display: flex;
     width: 80%;
-    height: 60vh;
-    margin-bottom: 30px; }
+    height: 60vh; }
     .homeGallery .myOwnCarouselClass .slideBox {
+      width: 100%;
       justify-content: flex-start;
       flex-direction: row; }
       .homeGallery .myOwnCarouselClass .slideBox .slideInfo {
         color: #000;
         display: flex;
         flex-direction: column;
-        width: 40%;
+        width: 38%;
         position: absolute;
         top: 0;
-        left: 0; }
+        left: 0;
+        margin-top: 10%; }
       .homeGallery .myOwnCarouselClass .slideBox img {
         width: 60%;
-        max-width: 600px;
-        max-height: 400px;
+        max-height: 550px;
         position: absolute;
         top: 0;
-        left: 400px; }
+        left: 40%; }
     .homeGallery .myOwnCarouselClass .carouselArrow1,
     .homeGallery .myOwnCarouselClass .carouselArrow2 {
       background-color: #FFE978;
       border-radius: 50%;
       border: 7px #FFE978 solid; }
 
+.priceTable {
+  background: transparent;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .priceTable .priceHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-weight: bold; }
+  .priceTable table {
+    border-collapse: separate !important;
+    background-color: rgba(250, 250, 250, 0.6);
+    border-radius: 10px; }
+
 .contact {
+  padding-top: 30px;
   background-color: #FFF;
   display: flex;
   flex-direction: column;
@@ -214,8 +260,7 @@ header .hero {
   .contact .contactMethods {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    min-width: 500px; }
+    justify-content: space-around; }
     .contact .contactMethods .phoneImage {
       color: lightgreen; }
       .contact .contactMethods .phoneImage:hover {
@@ -230,12 +275,6 @@ header .hero {
         animation: iconHover 2s; }
     .contact .contactMethods p {
       line-height: 60px; }
-  .contact .mapContainer {
-    justify-content: center;
-    margin: 20px auto; }
-    .contact .mapContainer iframe {
-      width: 640px;
-      height: 480px; }
   .contact .backToTop {
     display: flex;
     justify-content: center;
@@ -262,6 +301,9 @@ header .hero {
     padding-left: 20px;
     font-size: 13px; }
 
+.showNavbarClass {
+  display: block; }
+
 @keyframes iconHover {
   0% {
     transform: scale(1); }
@@ -269,5 +311,313 @@ header .hero {
     transform: scale(1.2); }
   100% {
     transform: scale(1); } }
+
+@media only screen and (min-width: 1200px) {
+  .hero {
+    height: 75vh; }
+    .hero .myBrandLogo {
+      font-size: 40px; }
+    .hero .respContent {
+      justify-content: flex-end; }
+      .hero .respContent .textForNavbar,
+      .hero .respContent a {
+        border: transparent solid;
+        display: inline-block;
+        text-align: center; }
+      .hero .respContent .textForNavbar:hover {
+        border-bottom: #FFE978 solid;
+        cursor: pointer; }
+      .hero .respContent a:hover {
+        font-weight: bold; }
+      .hero .respContent a::after {
+        display: block;
+        content: attr(title);
+        font-weight: bold;
+        height: 0;
+        overflow: hidden;
+        visibility: hidden; }
+    .hero p {
+      line-height: 400px;
+      font-size: 60px; }
+  .aboutBiałogóra h2 {
+    margin: 30px auto; }
+  .priceTable {
+    min-height: 600px;
+    padding-top: 40px;
+    padding-bottom: 30px; }
+    .priceTable .priceHeader {
+      padding-bottom: 20px; }
+      .priceTable .priceHeader h2 {
+        font-size: 40px; }
+    .priceTable th,
+    .priceTable td {
+      font-size: 20px;
+      padding: 30px; }
+    .priceTable th:nth-of-type(1) {
+      padding-left: 20%;
+      font-size: 30px; }
+    .priceTable td:nth-of-type(2),
+    .priceTable td:nth-of-type(3),
+    .priceTable td:nth-of-type(5),
+    .priceTable td:nth-of-type(6) {
+      padding-left: 10%; }
+  .mailImage,
+  .facebookImage,
+  .phoneImage {
+    margin: 40px; }
+  .contactMethods p {
+    padding-top: 40px; }
+  .mapContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center; }
+    .mapContainer iframe {
+      min-width: 640px;
+      min-height: 480px;
+      width: 50%;
+      height: auto; } }
+
+@media only screen and (max-width: 1199px) {
+  .hero {
+    height: 75vh;
+    width: 100%; }
+    .hero .myBrandLogo {
+      font-size: 25px; }
+    .hero .respContent {
+      justify-content: flex-end; }
+      .hero .respContent .textForNavbar {
+        border: transparent solid; }
+        .hero .respContent .textForNavbar:hover {
+          cursor: pointer; }
+    .hero p {
+      line-height: 400px;
+      font-size: 60px; }
+  .aboutBiałogóra h2 {
+    margin: 30px auto; }
+  .homeGallery {
+    justify-content: center; }
+    .homeGallery .galleryTitle p {
+      font-weight: bold;
+      margin: 20px auto;
+      font-family: avenirNextFont;
+      font-size: 50px; }
+    .homeGallery .myOwnCarouselClass {
+      width: 100%; }
+  .priceTable {
+    padding-top: 60px;
+    padding-bottom: 90px; }
+    .priceTable .priceHeader {
+      padding-bottom: 20px; }
+      .priceTable .priceHeader h2 {
+        font-size: 40px; }
+    .priceTable th,
+    .priceTable td {
+      font-size: 18px;
+      padding: 20px; }
+    .priceTable th:nth-of-type(1) {
+      padding-left: 20%;
+      font-size: 30px; }
+    .priceTable td:nth-of-type(2),
+    .priceTable td:nth-of-type(3),
+    .priceTable td:nth-of-type(5),
+    .priceTable td:nth-of-type(6) {
+      padding-left: 10%; }
+  .mailImage,
+  .facebookImage,
+  .phoneImage {
+    margin: 20px; }
+  .contactMethods p {
+    padding-top: 20px; }
+  .mapContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center; }
+    .mapContainer iframe {
+      min-width: 640px;
+      min-height: 480px;
+      width: 50%;
+      height: auto; } }
+
+@media only screen and (max-width: 900px) {
+  .hero {
+    height: 75vh;
+    width: 100%; }
+    .hero .myBrandLogo {
+      font-size: 20px; }
+    .hero .respContent {
+      justify-content: flex-end; }
+      .hero .respContent .textForNavbar {
+        border: transparent solid; }
+        .hero .respContent .textForNavbar:hover {
+          border-bottom: none;
+          cursor: default;
+          font-weight: normal;
+          margin-left: 0; }
+    .hero p {
+      line-height: 400px;
+      font-size: 60px; }
+  .aboutBiałogóra h2 {
+    margin: 30px auto; }
+  .aboutBiałogóra .cityGallery {
+    flex-wrap: wrap; }
+    .aboutBiałogóra .cityGallery .imageView {
+      width: 50%; }
+  .aboutBiałogóra .modalBoxes #closeIcon {
+    right: 120px;
+    top: 30px; }
+  .homeGallery {
+    padding-bottom: 0;
+    justify-content: center; }
+    .homeGallery .galleryTitle p {
+      font-weight: bold;
+      margin: 20px auto;
+      font-family: avenirNextFont;
+      font-size: 50px; }
+    .homeGallery .myOwnCarouselClass {
+      width: 100%;
+      height: 45vh; }
+  .priceTable {
+    padding-top: 40px;
+    padding-bottom: 70px; }
+    .priceTable th,
+    .priceTable td {
+      font-size: 15px;
+      padding: 15px; }
+  .mailImage,
+  .facebookImage,
+  .phoneImage {
+    margin: 20px; }
+  .contactMethods p {
+    padding-top: 20px; }
+  .mapContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center; }
+    .mapContainer iframe {
+      min-width: 640px;
+      min-height: 480px;
+      width: 50%;
+      height: auto; } }
+
+@media only screen and (max-width: 600px) {
+  header {
+    position: relative; }
+    header .hero {
+      height: 75vh;
+      width: 100%; }
+      header .hero .myNavClass {
+        font-size: 20px;
+        background-color: rgba(250, 250, 250, 0.6); }
+        header .hero .myNavClass .flexLogo {
+          display: flex;
+          justify-content: center; }
+          header .hero .myNavClass .flexLogo .myBrandLogo {
+            font-size: 20px; }
+        header .hero .myNavClass .hamburgerMenuClass {
+          font-size: 20px; }
+        header .hero .myNavClass .respContent {
+          align-items: center; }
+          header .hero .myNavClass .respContent .textForNavbar {
+            border: transparent solid; }
+            header .hero .myNavClass .respContent .textForNavbar:hover {
+              border-bottom: none;
+              cursor: default;
+              font-weight: normal;
+              margin-left: 0; }
+      header .hero p {
+        line-height: normal;
+        position: absolute;
+        top: 70%;
+        left: 10%;
+        font-size: 40px; }
+  .aboutBiałogóra h2 {
+    font-size: 22px;
+    margin: 30px auto; }
+  .aboutBiałogóra p {
+    font-size: 13px; }
+  .aboutBiałogóra .cityGallery {
+    flex-wrap: wrap; }
+    .aboutBiałogóra .cityGallery .imageView {
+      width: 100%; }
+  .aboutBiałogóra .modalBoxes {
+    padding-top: 0; }
+    .aboutBiałogóra .modalBoxes #closeIcon {
+      right: 30px;
+      top: 30px; }
+    .aboutBiałogóra .modalBoxes #boxContent {
+      margin-top: 50%;
+      width: 85%; }
+      .aboutBiałogóra .modalBoxes #boxContent img {
+        height: 80vh; }
+  .homeGallery {
+    height: 70vh;
+    padding-bottom: 0;
+    justify-content: center; }
+    .homeGallery .galleryTitle p {
+      font-weight: bold;
+      margin: 20px auto;
+      font-family: avenirNextFont;
+      font-size: 50px; }
+    .homeGallery .myOwnCarouselClass {
+      height: 40vh;
+      min-height: 350px;
+      min-width: 1px; }
+      .homeGallery .myOwnCarouselClass .slideBox {
+        max-height: 800px; }
+        .homeGallery .myOwnCarouselClass .slideBox .slideInfo {
+          background-color: rgba(250, 250, 250, 0.6);
+          height: 17vh;
+          width: 90%;
+          position: absolute;
+          top: 150px;
+          margin-left: 5%; }
+          .homeGallery .myOwnCarouselClass .slideBox .slideInfo h2 {
+            font-size: 20px; }
+          .homeGallery .myOwnCarouselClass .slideBox .slideInfo p {
+            text-align: justify;
+            font-size: 11px;
+            margin: 0 15px; }
+        .homeGallery .myOwnCarouselClass .slideBox .homeImageClass {
+          width: 100%;
+          height: auto;
+          max-height: 500px; }
+          .homeGallery .myOwnCarouselClass .slideBox .homeImageClass img {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            position: static;
+            margin: 0 auto; }
+      .homeGallery .myOwnCarouselClass .carouselArrow1,
+      .homeGallery .myOwnCarouselClass .carouselArrow2 {
+        position: absolute;
+        top: 45%; }
+  .priceTable {
+    padding-top: 60px;
+    padding-bottom: 30px; }
+    .priceTable th,
+    .priceTable td {
+      font-size: 11px;
+      padding: 10px; }
+  .contact {
+    padding-top: 50px; }
+    .contact .mailImage,
+    .contact .facebookImage,
+    .contact .phoneImage {
+      font-size: 40px;
+      margin: 10px; }
+    .contact .contactMethods p {
+      padding-top: 4px;
+      font-size: 13px; }
+    .contact .mapContainer {
+      position: relative;
+      padding-bottom: 80%;
+      height: 0;
+      overflow: hidden; }
+      .contact .mapContainer iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 100% !important; } }
 
 /*# sourceMappingURL=style.css.map */
